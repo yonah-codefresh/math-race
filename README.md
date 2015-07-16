@@ -1,7 +1,7 @@
 #Math-Race
 
 This repo gets built automatically via webhook to Codefresh.io 
-:)
+
 
 Simple knockout.js / websockets / node.js real-time game
 
