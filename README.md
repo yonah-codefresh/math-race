@@ -1,13 +1,5 @@
 #Math-Race
-
-This repo gets built automatically via webhook to Codefresh.io 
-
-
-Simple knockout.js / websockets / node.js real-time game
-
-This is a **very simple real-time game** created with node.js, knockout.js and socket.io.
-
-##Goal
+===
 
 Try to be faster than the other players in **solving simple mathematical equations**.
 
