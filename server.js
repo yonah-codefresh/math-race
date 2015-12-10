@@ -3,13 +3,13 @@ var config = require ('./config').values
 var app = require ('./app').getApp(config)
 var http=require('http'), server=http.createServer(app);
 var port = parseInt(process.argv[2], 10) || process.env.PORT || 9000
-app.listen(port);
+var listener=app.listen(port);
 
 //create handler for socket.io
 var race = require ('./lib/modules/race')
 race.createRace(server);
 
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+console.log("Express server listening on port %d in %s mode", listener.address().port, app.settings.env);
 
 process.on('SIGINT', function () {
 	app.close();
