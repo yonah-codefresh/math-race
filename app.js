@@ -4,6 +4,7 @@ var getApp = function (config) {
 	var bodyParser=require('body-parser');
 	var methodOverride=require('method-override');
 	var cookieParser=require('cookie-parser');
+	var errorHandler=require('errorhandler');
 	//middleware
 	function local_env (req, res, next){
 		res.local('real_time_server', config.server.production.real_time_server)
@@ -23,7 +24,7 @@ var getApp = function (config) {
 		var oneYear = 31557600000;
 		app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
 
-	  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+	  app.use(errorHandler({ dumpExceptions: true, showStack: true })); 
 
 
 	//routes
