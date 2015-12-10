@@ -5,11 +5,6 @@ var getApp = function (config) {
 	var methodOverride=require('method-override');
 	var cookieParser=require('cookie-parser');
 	var errorHandler=require('errorhandler');
-	//middleware
-	function local_env (req, res, next){
-		res.local.real_time_server=config.server.production.real_time_server;
-		next();
-	}
 
 		app.set('views', __dirname + '/views');
 		app.set('view engine', 'ejs');
@@ -19,7 +14,11 @@ var getApp = function (config) {
 		app.use(methodOverride());
 		app.use(cookieParser());
 				
-		app.use(local_env);
+	//middleware
+		app.use(function(req, res, next){
+                	res.locals.real_time_server=config.server.production.real_time_server;
+                	next();
+        	});
 		
 		var oneYear = 31557600000;
 		app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
