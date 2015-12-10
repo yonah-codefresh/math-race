@@ -7,7 +7,7 @@ var getApp = function (config) {
 	var errorHandler=require('errorhandler');
 	//middleware
 	function local_env (req, res, next){
-		res.local('real_time_server', config.server.production.real_time_server)
+		res.local.real_time_server=config.server.production.real_time_server;
 		next();
 	}
 
