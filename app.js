@@ -12,8 +12,8 @@ var getApp = function (config) {
 
 		app.set('views', __dirname + '/views');
 		app.set('view engine', 'ejs');
-		app.engine('.html', require('ejs').parseHandler);
-		app.engine('.ejs', require('ejs').parseHandler);
+		app.engine('.html', require('ejs').renderFile);
+		app.engine('.ejs', require('ejs').renderFile);
 		app.use(bodyParser());
 		app.use(methodOverride());
 		app.use(cookieParser());
